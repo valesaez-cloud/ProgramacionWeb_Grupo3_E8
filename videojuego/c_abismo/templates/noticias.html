@@ -1,0 +1,26 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Cronicas del Abismo" content="width=device-width, initial-scale=1.0">
+    <title>Noticias Gamer - Crónicas del Abismo</title>
+    <link rel="stylesheet" href="{% static 'css/styles_g3.css' %}">
+</head>
+<body>
+    <header class="mb-4">
+        {% include 'segments/header.html' %}
+    </header>
+        <div class="container my-4">
+         <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="m-0">Noticias Gamer</h1>
+        <button id="btnRecargar" class="btn btn-outline-light btn-sm">Recargar</button>
+    </div>
+    <div id="zona-noticias" class="row g-3"></div>
+    <p id="msg" class="text-center mt-3" style="display:none;"></p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="{% static 'js/noticias.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Cronicas del Abismo" content="width=device-width, initial-scale=1.0">
+    <title>Categorías de Videojuegos - Crónicas del Abismo</title>
+    <link rel="stylesheet" href="{% static 'css/styles_g3.css' %}">
+</head>
+<body>
+    <header>
+        {% include "segments/header.html" %}        
+    </header>
+        <div class="container mt-5">
+            <h1 class="text-center mb-4">Categorías (Géneros)</h1>
+            <div id="categorias" class="row gy-4">
+            <!-- JS insertará las tarjetas acá -->
+        </div>
+        <p id="msg" class="text-center mt-3" style="display:none;"></p>
+        </div>
+
+        <footer class="mt-5 text-center">
+        <p>&copy; 2025 Crónicas del Abismo. Todos los derechos reservados.</p>
+        </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="{% static 'js/juegos_externos.js' %}"></script>
+    </body>
+</html>
