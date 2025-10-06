@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro Usuarios</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <h2>Gestión de Usuarios</h2>
+
+        <input type="text" name="id" placeholder="ID (solo para actualizar/eliminar)">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="text" name="apellidos" placeholder="Apellidos" required>
+        <input type="email" name="correo" placeholder="Correo" required>
+        <input type="text" name="rol" placeholder="Rol" required>
+
+        <button name="accion" value="crear" type="submit">Crear Usuario</button>
+        <button name="accion" value="actualizar" type="submit">Actualizar Usuario</button>
+        <button name="accion" value="eliminar" type="submit">Eliminar Usuario</button>
+
+        {% if mensaje %}
+            <p style="color: green;">{{ mensaje }}</p>
+        {% endif %}
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+    </form>
+
+    <h2 style="margin-top:40px;">Lista de Usuarios</h2>
+    <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Correo</th>
+            <th>rol</th>
+        </tr>
+        {% for user in usuarios %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.nombre }}</td>
+            <td>{{ user.apellidos }}</td>
+            <td>{{ user.correo }}</td>
+            <td>{{ user.rol }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No hay usuarios registrados.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
